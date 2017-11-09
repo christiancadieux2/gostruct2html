@@ -138,7 +138,11 @@ func visitStruct(v reflect.Value, level, max int, spacer, skip string) (string, 
 		if six > 0 {
 			stype = stype[six+1:]
 		}
-		stype = strings.Replace(stype, "string", "str", -1)
+		if stype == "string" || stype == "int" {
+			stype = ""
+		} else {
+			stype = strings.Replace(stype, "string", "str", -1)
+		}
 		//fmt.Println("name=", sf.Name, sf.Type, skip)
 		if skip == "" || strings.Index(","+skip+",", ","+sf.Name+",") < 0 {
 			out1, type1 := visit(f, level+1, max, skip)
