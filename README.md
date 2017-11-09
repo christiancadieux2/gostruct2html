@@ -1,6 +1,7 @@
 # gostruct2html
 
-Convert any GO structure in html
+Convert any GO structure in html.
+
 Example:
 ```
 package main
