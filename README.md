@@ -3,6 +3,9 @@
 Convert any GO structure in html
 Example:
 ```
+package main
+import "fmt"
+
 type Struct1 struct {
 	field1 string
 	field2 map[string]string
@@ -37,10 +40,12 @@ var test_struct = Struct2{
 	field4: "This is field4",
 }
 
-
-
-go run ./*.go > test_struct.html
+func main() {
+  fmt.Println(Struct2html(test_struct, 10, ""))
+}
 
 ```
+
+go run ./*.go > test_struct.html
 
 ![struct](https://user-images.githubusercontent.com/31523474/32586566-76accc10-c4c0-11e7-9615-e0f5361e491e.png)
