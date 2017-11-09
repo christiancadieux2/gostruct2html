@@ -1,6 +1,6 @@
 # gostruct2html
 
-Convert any GO structure in html.
+Convert any GO structure to HTML representation using reflection.
 
 Example:
 ```
