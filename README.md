@@ -49,4 +49,5 @@ func main() {
 
 go run ./*.go > test_struct.html
 
-![struct](https://user-images.githubusercontent.com/31523474/32586566-76accc10-c4c0-11e7-9615-e0f5361e491e.png)
+![struct2](https://user-images.githubusercontent.com/31523474/32586935-e2b4c8e8-c4c2-11e7-9268-32205468ca27.png)
+

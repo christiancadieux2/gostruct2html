@@ -133,11 +133,17 @@ func visitStruct(v reflect.Value, level, max int, spacer, skip string) (string, 
 	for i := 0; i < vt.NumField(); i += 1 {
 		sf := vt.Field(i)
 		f := v.FieldByIndex([]int{i})
-		//fmt.Println("name=", sf.Name, skip)
+		stype := sf.Type.String()
+		six := strings.LastIndex(stype, ".")
+		if six > 0 {
+			stype = stype[six+1:]
+		}
+		stype = strings.Replace(stype, "string", "str", -1)
+		//fmt.Println("name=", sf.Name, sf.Type, skip)
 		if skip == "" || strings.Index(","+skip+",", ","+sf.Name+",") < 0 {
 			out1, type1 := visit(f, level+1, max, skip)
-			out += spacer + fmt.Sprintf("<tr><td %s><font color=gray>%s%s:</td><td %s>%v</td>\n",
-				t2, sf.Name, type1, t3, out1)
+			out += spacer + fmt.Sprintf("<tr><td %s><font color=gray>%s%s:<br>%s</td><td %s>%v</td>\n",
+				t2, sf.Name, type1, stype, t3, out1)
 		}
 	}
 	out += spacer + "</table>\n"
